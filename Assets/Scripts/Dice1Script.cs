@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Dice1Script : MonoBehaviour{
-    static Rigidbody rb;
+    private Rigidbody rb;
     public static Vector3 dice1Velocity;
+
+    public Vector3 spawnPoint;
     // Start is called before the first frame update
     void Start(){
-        rb = GetComponent<Rigidbody> ();
+        
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -18,7 +21,7 @@ public class Dice1Script : MonoBehaviour{
             float dirX = Random.Range(0, 500);
             float dirY = Random.Range(0, 500);
             float dirZ = Random.Range(0, 500);
-            transform.position = new Vector3(0, 7, 2);
+            transform.position = spawnPoint;
             transform.rotation = Quaternion.identity;
             rb.AddForce(transform.up * 500);
             rb.AddTorque(dirX, dirY, dirZ);
