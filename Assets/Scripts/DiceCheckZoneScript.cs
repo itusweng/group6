@@ -6,7 +6,7 @@ public class DiceCheckZoneScript : MonoBehaviour{
     Vector3 dice1Velocity;
     private bool isStopped = false;
     void FixedUpdate(){
-        dice1Velocity = Dice1Script.dice1Velocity;
+        dice1Velocity = Dice1Script.diceVelocity;
     }
 
     void OnTriggerStay(Collider col){
