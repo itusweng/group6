@@ -160,7 +160,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bca69eaead51648159420718d00c8815, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {x: 0, y: 7, z: -2}
+  diceResult: 0
+  oneSide: {fileID: 831197921280198357}
+  twoSide: {fileID: 831197923098954825}
+  threeSide: {fileID: 831197922587398233}
+  spawnPoint: {x: 2, y: 7, z: 0}
 --- !u!1 &831197921280198354
 GameObject:
   m_ObjectHideFlags: 0

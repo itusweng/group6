@@ -10,6 +10,7 @@ public class Dice1Script : MonoBehaviour
     public static Vector3 diceVelocity;
     public int diceResult;
     private bool isStopped;
+    public Transform oneSide, twoSide, threeSide;
 
     public Vector3 spawnPoint;
 
@@ -33,42 +34,47 @@ public class Dice1Script : MonoBehaviour
             transform.rotation = Quaternion.identity;
             rb.AddForce(transform.up * 500);
             rb.AddTorque(dirX, dirY, dirZ);
+            isStopped = false;
         }
+        
     }
 
     private void OnTriggerStay(Collider col)
     {
        
-        if (col.gameObject.CompareTag("DiceCheckZone"))
+        if (col.gameObject.CompareTag("DiceCheckZone") && !isStopped)
         {
-            if (diceVelocity.magnitude == 0)
+            
+            if (diceVelocity.magnitude < 0.01f)
             {
-                isStopped = true;
-                if (col.gameObject.name == "Dice1Side1")
-                {
-                    diceResult = 6;
-                }
-                else if (col.gameObject.name == "Dice1Side2")
-                {
-                    diceResult = 5;
-                }
-                else if (col.gameObject.name == "Dice1Side3")
-                {
-                    diceResult = 4;
-                }
-                else if (col.gameObject.name == "Dice1Side4")
-                {
-                    diceResult = 3;
-                }
-                else if (col.gameObject.name == "Dice1Side5")
-                {
-                    diceResult = 2;
-                }
-                else if (col.gameObject.name == "Dice1Side6")
+                float onePos = Mathf.Round(oneSide.TransformPoint(Vector3.zero).y * 10f) * 0.1f;
+                float twoPos = Mathf.Round(twoSide.TransformPoint(Vector3.zero).y * 10f) * 0.1f;
+                float threePos = Mathf.Round(threeSide.TransformPoint(Vector3.zero).y * 10f) * 0.1f;
+                if (onePos > twoPos && onePos > threePos)
                 {
                     diceResult = 1;
                 }
-                Debug.Log(diceResult);
+                else if (twoPos > onePos && twoPos > threePos)
+                {
+                    diceResult = 2;
+                }
+                else if (threePos > onePos && threePos > twoPos)
+                {
+                    diceResult = 3;
+                }
+                else if (onePos < twoPos && onePos < threePos)
+                {
+                    diceResult = 6;
+                }
+                else if (twoPos < onePos && twoPos < threePos)
+                {
+                    diceResult = 5;
+                }
+                else if (threePos < twoPos && threePos < onePos)
+                {
+                    diceResult = 4;
+                }
+                isStopped = true;
             }
         }
     }
