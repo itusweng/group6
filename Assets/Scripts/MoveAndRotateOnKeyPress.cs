@@ -2,94 +2,66 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveAndRotateOnKeyPress : MonoBehaviour
-{
+public class MoveAndRotateOnKeyPress : MonoBehaviour{
 
-  public float moveSpeed = 10f;
+  public int totalOfDices = 0;
+  private bool moveFlag = false;
+  
+  public float speed;
+  public float targetDistance;
+  private float remainingDistance;
+  private bool moving = false;
 
-  public float rotationSpeed = 100f;
+  public float rotationSpeed;
+  public float remainingAngle;
+  private bool rotating = false;
 
-  private enum Direction
-  {
-    FORWARD, BACK, LEFT, RIGHT
-  }
 
-  private enum Rotation
-  {
-    COUNTERCLOCKWISE, CLOCKWISE
-  }
-
-  // Start is called before the first frame update
-  void Start()
-  {
+  void Start(){
     Debug.Log("Merhaba!");
     Rigidbody rigidBody = GetComponent<Rigidbody>();
   }
 
-  // Update is called once per frame
-  void Update()
-  {
-    if (Input.GetKey(KeyCode.W))
-    {
-      Debug.Log("Forward Move");
-      moveObject(Direction.FORWARD);
-    }
-    if (Input.GetKey(KeyCode.A))
-    {
-      Debug.Log("Left Move");
-      moveObject(Direction.LEFT);
-    }
-    if (Input.GetKey(KeyCode.S))
-    {
-      Debug.Log("Back Move");
-      moveObject(Direction.BACK);
-    }
-    if (Input.GetKey(KeyCode.D))
-    {
-      Debug.Log("Right Move");
-      moveObject(Direction.RIGHT);
-    }
-    if (Input.GetKey(KeyCode.Q))
-    {
-      Debug.Log("Rotate CLOCKWISE");
-      rotateObject(Rotation.CLOCKWISE);
-    }
-    if (Input.GetKey(KeyCode.E))
-    {
-      Debug.Log("Rotate COUNTERCLOCKWISE");
-      rotateObject(Rotation.COUNTERCLOCKWISE);
+  void Update(){
+    if(DiceRollButtonScript.diceResultTotal > 0){
+      if(totalOfDices % 8 == 0 && moveFlag){
+        if (rotating == false){
+          Debug.Log("Rotate COUNTERCLOCKWISE");
+          rotating = true;
+          remainingAngle = 90;
+        }
+        if (rotating == true) Rotate();
+      }
+      else{
+        if (moving == false){
+          Debug.Log("Back Move");
+          moving = true;
+          remainingDistance = targetDistance;
+        }
+        if (moving == true) Move();
+      }
     }
   }
 
-  private void moveObject(Direction direction)
-  {
-    switch (direction)
-    {
-      case Direction.FORWARD:
-        transform.Translate(Vector3.forward * Time.deltaTime * moveSpeed);
-        break;
-      case Direction.BACK:
-        transform.Translate(Vector3.back * Time.deltaTime * moveSpeed);
-        break;
-      case Direction.LEFT:
-        transform.Translate(Vector3.left * Time.deltaTime * moveSpeed);
-        break;
-      case Direction.RIGHT:
-        transform.Translate(Vector3.right * Time.deltaTime * moveSpeed);
-        break;
-    }
+  private void Move(){
+    float amount = Time.deltaTime * speed;
+    transform.Translate(Vector3.back * amount);
+    remainingDistance -= Mathf.Abs(amount);
+    if (remainingDistance <= 0){
+      moving = false;
+      DiceRollButtonScript.diceResultTotal -= 1;
+      totalOfDices += 1;
+      moveFlag = true;
+      totalOfDices %= 32;
+    } 
   }
 
-  private void rotateObject(Rotation rotation)
-  {
-    switch (rotation)
-    {
-      case Rotation.COUNTERCLOCKWISE:
-        transform.Rotate(0, Time.deltaTime * rotationSpeed, 0);
-        break;
-      case Rotation.CLOCKWISE:
-        transform.Rotate(0, Time.deltaTime * (-rotationSpeed), 0);
-        break;
-    }
+  private void Rotate(){
+    float amount = Time.deltaTime * rotationSpeed;
+    transform.Rotate(0f, amount, 0f);
+    remainingAngle -= Mathf.Abs(amount);
+    if (remainingAngle <= 0){
+      rotating = false;
+    } 
   }
 }
