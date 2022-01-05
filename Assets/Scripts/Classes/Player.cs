@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private int _playerId;
-    private string _playerName;
-    private float _dollarAmount;
-    private float _euroAmount;
-    private float _liraAmount;
-    private bool _hasGetOutOfJailFree;
-    private int _position;  // My addition
-    private int _isJailed = 0;
+    public int _playerId;
+    public string _playerName;
+    public float _dollarAmount;
+    public float _euroAmount;
+    public float _liraAmount;
+    public bool _hasGetOutOfJailFree;
+    public int _position;  // My addition
+    public int _isJailed = 0;
+    public int targetZone;
 
 
     public List<Property> Properties { get; set; }

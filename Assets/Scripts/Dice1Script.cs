@@ -8,9 +8,13 @@ public class Dice1Script : MonoBehaviour{
     private Rigidbody rb;
     public static Vector3 diceVelocity;
     public int diceResult;
-    public static bool isStopped;
+    public bool isStopped;
     public Transform oneSide, twoSide, threeSide;
     public Vector3 spawnPoint;
+
+    public TurnHandler gameManager;
+
+    public int diceNumber;
 
     void Start(){
         rb = GetComponent<Rigidbody>();
@@ -44,7 +48,6 @@ public class Dice1Script : MonoBehaviour{
                 else if (twoPos < onePos && twoPos < threePos) diceResult = 5;
                 else if (threePos < twoPos && threePos < onePos) diceResult = 4;
                 isStopped = true;
-                DiceRollButtonScript.diceResultTotal += diceResult;
             }
         }
     }
