@@ -13,6 +13,5 @@ public class DiceRollButtonScript : MonoBehaviour{
     public void rollDice(){
         dice2.rollDiceMono();
         dice1.rollDiceMono();
-        
     }
 }

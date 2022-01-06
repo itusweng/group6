@@ -29,6 +29,7 @@ public class Dice1Script : MonoBehaviour{
         rb.AddForce(transform.up * 750);
         rb.AddTorque(dirX, dirY, dirZ);
         isStopped = false;
+        gameManager.rollSession = true;
     }
     
     void Update(){

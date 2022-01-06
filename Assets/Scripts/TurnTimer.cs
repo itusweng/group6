@@ -10,6 +10,7 @@ public class TurnTimer : MonoBehaviour
 
   public float initialTimeLeft = 60f;
   float timeLeft;
+  public bool timeIsStopped;
 
   // Start is called before the first frame update
   void Start()
@@ -25,7 +26,7 @@ public class TurnTimer : MonoBehaviour
       TurnHandler turnHandler = GetComponent<TurnHandler>();
       turnHandler.TimeEnded();
     }
-    else
+    if(!timeIsStopped)
     {
       timeLeft -= Time.deltaTime;
       remainingTimeText.text = "Time remaining: " + timeLeft.ToString("00");
