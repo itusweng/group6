@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class TurnTimer : MonoBehaviour
 {
-  public Text remainingTimeText;
+  public TextMeshProUGUI  remainingTimeText;
 
   public float initialTimeLeft = 60f;
   float timeLeft;

@@ -46,6 +46,7 @@ public class TurnHandler : MonoBehaviour
       nextZone = board.boardElements[players[playerTurn]._position + 1].transform.position;
       rollSession = false;
       moveSession = true;
+      buySession = false;
       endingSession = false;
     }
   }
@@ -75,7 +76,8 @@ public class TurnHandler : MonoBehaviour
           transform.position.y, transform.position.z);
         
         rollSession = false;
-        moveSession = true;
+        moveSession = false;
+        buySession = true;
         endingSession = false;
       }
       else
@@ -84,5 +86,11 @@ public class TurnHandler : MonoBehaviour
       }
     }
   }
+
+  void TakeAction()
+  {
+    
+  }
+  
   
 }
