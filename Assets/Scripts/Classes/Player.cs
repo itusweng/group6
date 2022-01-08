@@ -13,9 +13,12 @@ public class Player : MonoBehaviour
     public int _position;  // My addition
     public int _isJailed = 0;
     public int targetZone;
+    public bool _isBankrupt;
+    private bool _isMonopoly;
 
 
-    public List<Property> Properties { get; set; }
+
+    public List<Property> Properties;
 
 
 
@@ -121,6 +124,19 @@ public class Player : MonoBehaviour
         set { _isJailed = value; }
     }
 
+    public bool IsMonopoly
+    {
+        get { return _isMonopoly; }
+        set { _isMonopoly = value; }
+    }
+
+
+    public bool IsBankrupt
+    {
+        get { return _isBankrupt = false; }
+        set { _isBankrupt = value; }
+    }
+
 
     public int RollDice()
     {
@@ -213,5 +229,10 @@ public class Player : MonoBehaviour
     public bool CreateLobby()   // void on class diagrams
     {
         return true;
+    }
+
+    public Player()
+    {
+        
     }
 }

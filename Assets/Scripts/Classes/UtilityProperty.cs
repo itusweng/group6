@@ -19,7 +19,7 @@ public class UtilityProperty : Property
         return diceRoll * RentAmount[SetNumber];
     }
 
-    UtilityProperty()
+    public UtilityProperty()
     {
         _rentAmount = new float[] { 4, 10 };
     }

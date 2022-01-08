@@ -18,7 +18,7 @@ public class StationProperty : Property
         return RentAmount[SetNumber];
     }
 
-    StationProperty()
+    public StationProperty()
     {
         _rentAmount = new float[4];
     }

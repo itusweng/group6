@@ -6,7 +6,7 @@ public class ColoredProperty : Property
 {
     private int _houseCount = 0;
 
-    public PropertyColor PropertyColor { get; set; }
+    public PropertyColor PropertyColor;
 
     public int HouseCount
     {
@@ -47,7 +47,7 @@ public class ColoredProperty : Property
 
     }
 
-    ColoredProperty()
+    public ColoredProperty()
     {
         _rentAmount = new float[5];
     }
@@ -64,6 +64,4 @@ public enum PropertyColor
     Yellow,
     Green,
     DarkBlue,
-    Station,    //might be a different class
-    Utility     //might be a different class
 }
