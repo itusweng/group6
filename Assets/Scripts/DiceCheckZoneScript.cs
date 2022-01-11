@@ -1,13 +1,14 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class DiceCheckZoneScript : MonoBehaviour{
     Vector3 dice1Velocity;
     private bool isStopped = false;
-    void FixedUpdate(){
-        dice1Velocity = Dice1Script.diceVelocity;
-    }
+    private Dice1Script diceScript;
+
+  
 
     void OnTriggerStay(Collider col){
         if(dice1Velocity.magnitude == 0 && !isStopped)

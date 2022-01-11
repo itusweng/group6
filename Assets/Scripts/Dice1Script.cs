@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 
 public class Dice1Script : MonoBehaviour{
     private Rigidbody rb;
-    public static Vector3 diceVelocity;
+    public Vector3 diceVelocity;
     public int diceResult;
     public bool isStopped;
     public Transform oneSide, twoSide, threeSide;
@@ -14,6 +14,7 @@ public class Dice1Script : MonoBehaviour{
 
     public TurnHandler gameManager;
 
+    public bool isReset;
     public int diceNumber;
 
     void Start(){
@@ -21,12 +22,13 @@ public class Dice1Script : MonoBehaviour{
     }
 
     public void rollDiceMono(){
-        float dirX = Random.Range(9100000, 1020000);
-        float dirY = Random.Range(8900000, 9700000);
-        float dirZ = Random.Range(9400000, 1010000);
+        isReset = false;
+        float dirX = Random.Range(1000, 5000); //9100000, 1020000
+        float dirY = Random.Range(1000, 5000); //8900000, 9700000
+        float dirZ = Random.Range(1000, 5000); //9400000, 1010000
         transform.position = spawnPoint;
         transform.rotation = Quaternion.identity;
-        rb.AddForce(transform.up * 750);
+        rb.AddForce(transform.up*-100);
         rb.AddTorque(dirX, dirY, dirZ);
         isStopped = false;
         gameManager.rollSession = true;
@@ -37,8 +39,8 @@ public class Dice1Script : MonoBehaviour{
     }
 
     public void OnTriggerStay(Collider col){
-        if (col.gameObject.CompareTag("DiceCheckZone") && !isStopped){
-            if (diceVelocity.magnitude < 0.00001f){
+        if (col.gameObject.CompareTag("DiceCheckZone") && !isStopped && !isReset){
+            if (diceVelocity.magnitude == 0){
                 float onePos = Mathf.Round(oneSide.TransformPoint(Vector3.zero).y * 10f) * 0.1f;
                 float twoPos = Mathf.Round(twoSide.TransformPoint(Vector3.zero).y * 10f) * 0.1f;
                 float threePos = Mathf.Round(threeSide.TransformPoint(Vector3.zero).y * 10f) * 0.1f;

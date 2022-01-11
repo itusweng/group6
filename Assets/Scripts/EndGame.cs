@@ -61,7 +61,7 @@ public class EndGame : MonoBehaviour
                     if (property is ColoredProperty)
                     {
                         ColoredProperty temp = property as ColoredProperty;
-                        Colors.TryGetValue(temp.PropertyColor, out Color32 tempcolor);
+                        Colors.TryGetValue(temp.propertyColor, out Color32 tempcolor);
                         game.PropertyImages[i].color = tempcolor;
                     }
                     else if (property is StationProperty)
@@ -105,7 +105,7 @@ public class EndGame : MonoBehaviour
                     if (property is ColoredProperty)
                     {
                         ColoredProperty temp = property as ColoredProperty;
-                        Colors.TryGetValue(temp.PropertyColor, out Color32 tempcolor);
+                        Colors.TryGetValue(temp.propertyColor, out Color32 tempcolor);
                         game.PropertyImages[i].color = tempcolor;
                     }
                     else if (property is StationProperty)

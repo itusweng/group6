@@ -37,16 +37,16 @@ public class Game : MonoBehaviour
     {
 
         prop1.Name = "abcd";
-        prop1.PropertyColor = PropertyColor.Pink;
+        prop1.propertyColor = PropertyColor.Pink;
 
         prop2.Name = "Levent";
-        prop2.PropertyColor = PropertyColor.Green;
+        prop2.propertyColor = PropertyColor.Green;
 
-        prop3.PropertyColor = PropertyColor.Green;
+        prop3.propertyColor = PropertyColor.Green;
 
-        prop4.PropertyColor = PropertyColor.DarkBlue;
+        prop4.propertyColor = PropertyColor.DarkBlue;
 
-        prop5.PropertyColor = PropertyColor.DarkBlue;
+        prop5.propertyColor = PropertyColor.DarkBlue;
 
         prop3.Name = "Üsküdar Vapur İskelesi";
 
@@ -59,7 +59,7 @@ public class Game : MonoBehaviour
         teamEuro = player1.EuroAmount + player2.EuroAmount + player3.EuroAmount;
         teamLira = player1.LiraAmount + player2.LiraAmount + player3.LiraAmount;
 
-        player_monopoly._isBankrupt = true;
+        player_monopoly._isBankrupt = false;
         player_monopoly.IsMonopoly = true;
         player_monopoly.DollarAmount = 420500;
         player_monopoly.EuroAmount = 22500;

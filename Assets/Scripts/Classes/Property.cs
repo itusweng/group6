@@ -1,13 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
+using Image = UnityEngine.UI.Image;
 
 public abstract class Property : Zone
 {
-    private float _propertyPrice;
+    public float _propertyPrice;
     public float[] _rentAmount;
-    private bool _isMortgaged = false;
-    private Player _owner = null; // null means bank owns it.
+    public bool _isMortgaged = false;
+    public Player _owner = null; // null means bank owns it.
+    public Sprite cardImage;
+    public bool isBought;
 
 
     public float PropertyPrice
@@ -62,5 +66,6 @@ public abstract class Property : Zone
     {
         base.OnArrival(); // This will change
     }
+    
 
 }

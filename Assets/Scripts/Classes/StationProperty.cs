@@ -9,7 +9,7 @@ public class StationProperty : Property
     {
         get
         {
-            return 1; // implement
+            return _owner.blackPropCount; // implement
         }
     }
 

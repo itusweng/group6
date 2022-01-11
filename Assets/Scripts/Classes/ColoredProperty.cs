@@ -6,7 +6,7 @@ public class ColoredProperty : Property
 {
     private int _houseCount = 0;
 
-    public PropertyColor PropertyColor;
+    public PropertyColor propertyColor;
 
     public int HouseCount
     {
@@ -33,7 +33,6 @@ public class ColoredProperty : Property
                 amount *= 2;
             }
         }
-
         return amount;
     }
 
@@ -64,4 +63,6 @@ public enum PropertyColor
     Yellow,
     Green,
     DarkBlue,
+    Black,
+    White
 }

@@ -15,12 +15,22 @@ public class Player : MonoBehaviour
     public int targetZone;
     public bool _isBankrupt;
     private bool _isMonopoly;
-
+    
 
 
     public List<Property> Properties;
 
-
+    public int darkBluePropCount;
+    public int lightBluePropCount;
+    public int yellowPropCount;
+    public int redPropCount;
+    public int brownPropCount;
+    public int pinkPropCount;
+    public int orangePropCount;
+    public int greenPropCount;
+    public int blackPropCount;
+    public int whitePropCount;
+    
 
     public int PlayerId
     {
@@ -176,32 +186,60 @@ public class Player : MonoBehaviour
         return cardDrawn;
     }
 
-    public void PayRent()
+    public void PayRent(Property property, bool isSet, Player owner)
+    {
+        if (!isSet)
+        {
+            if (_dollarAmount > property.GetRentAmount())
+            {
+                _dollarAmount -= property.GetRentAmount();
+                owner._dollarAmount += property.GetRentAmount();
+            }
+        }
+        else
+        {
+            if (_dollarAmount > property._rentAmount[1])
+            {
+                _dollarAmount -= property._rentAmount[1];
+                owner._dollarAmount += property._rentAmount[1];
+            }
+        }
+        
+    }
+
+    public bool BuyProperty(Property property)
+    {
+        if (_dollarAmount > property._propertyPrice)
+        {
+            Properties.Add(property);
+            property._owner = this;
+            property.isBought = true;
+            _dollarAmount -= property._propertyPrice;
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+        
+    }
+
+    public void SellProperty( Property property,  Player player)
     {
 
     }
 
-    public void BuyProperty(ref Property property)
+    public void BuildHouse( Property property)   // or can pass in an int which specifies a property in Properties List
     {
 
     }
 
-    public void SellProperty(ref Property property, ref Player player)
+    public void BuildHotel( Property property)   // or can pass in an int which specifies a property in Properties List
     {
 
     }
 
-    public void BuildHouse(ref Property property)   // or can pass in an int which specifies a property in Properties List
-    {
-
-    }
-
-    public void BuildHotel(ref Property property)   // or can pass in an int which specifies a property in Properties List
-    {
-
-    }
-
-    public void Mortgage(ref Property property)   // or can pass in an int which specifies a property in Properties List
+    public void Mortgage( Property property)   // or can pass in an int which specifies a property in Properties List
     {
 
     }
@@ -234,5 +272,29 @@ public class Player : MonoBehaviour
     public Player()
     {
         
+    }
+
+    public void IncreasePropertyCount(PropertyColor propertyColor)
+    {
+        if (propertyColor == PropertyColor.LightBlue)
+            lightBluePropCount++;
+        else if (propertyColor == PropertyColor.Black)
+            blackPropCount++;
+        else if (propertyColor == PropertyColor.Brown)
+            brownPropCount++;
+        else if (propertyColor == PropertyColor.Green)
+            greenPropCount++;
+        else if (propertyColor == PropertyColor.Orange)
+            orangePropCount++;
+        else if (propertyColor == PropertyColor.Pink)
+            pinkPropCount++;
+        else if (propertyColor == PropertyColor.Red)
+            redPropCount++;
+        else if (propertyColor == PropertyColor.Yellow)
+            yellowPropCount++;
+        else if (propertyColor == PropertyColor.DarkBlue)
+            darkBluePropCount++;
+        else if (propertyColor == PropertyColor.White)
+            whitePropCount++;
     }
 }

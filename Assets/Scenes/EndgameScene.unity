@@ -238,13 +238,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ae32c65e6e773b4ebfd3a6be6baff5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _propertyPrice: 0
   _rentAmount:
   - 0
   - 0
   - 0
   - 0
   - 0
-  PropertyColor: 0
+  _isMortgaged: 0
+  _owner: {fileID: 0}
+  cardImage: {fileID: 0}
+  isBought: 0
+  propertyColor: 0
 --- !u!1 &133468715
 GameObject:
   m_ObjectHideFlags: 0
@@ -1155,6 +1160,16 @@ MonoBehaviour:
   targetZone: 0
   _isBankrupt: 0
   Properties: []
+  darkBluePropCount: 0
+  lightBluePropCount: 0
+  yellowPropCount: 0
+  redPropCount: 0
+  brownPropCount: 0
+  pinkPropCount: 0
+  orangePropCount: 0
+  greenPropCount: 0
+  blackPropCount: 0
+  whitePropCount: 0
 --- !u!1 &508258125
 GameObject:
   m_ObjectHideFlags: 0
@@ -2001,9 +2016,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7df53163461b29c44afdb43300792009, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _propertyPrice: 0
   _rentAmount:
   - 4
   - 10
+  _isMortgaged: 0
+  _owner: {fileID: 0}
+  cardImage: {fileID: 0}
+  isBought: 0
 --- !u!1 &713074747
 GameObject:
   m_ObjectHideFlags: 0
@@ -3072,7 +3092,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7169812, g: 0.7169812, b: 0.7169812, a: 1}
+  m_Color: {r: 0.21960784, g: 0.18039216, b: 0.23529412, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -3767,11 +3787,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6542a417f679ea34484e1b09b5681fd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _propertyPrice: 0
   _rentAmount:
   - 0
   - 0
   - 0
   - 0
+  _isMortgaged: 0
+  _owner: {fileID: 0}
+  cardImage: {fileID: 0}
+  isBought: 0
 --- !u!1 &984163135
 GameObject:
   m_ObjectHideFlags: 0
@@ -3815,13 +3840,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ae32c65e6e773b4ebfd3a6be6baff5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _propertyPrice: 0
   _rentAmount:
   - 0
   - 0
   - 0
   - 0
   - 0
-  PropertyColor: 0
+  _isMortgaged: 0
+  _owner: {fileID: 0}
+  cardImage: {fileID: 0}
+  isBought: 0
+  propertyColor: 0
 --- !u!1 &1042168067
 GameObject:
   m_ObjectHideFlags: 0
@@ -3865,13 +3895,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ae32c65e6e773b4ebfd3a6be6baff5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _propertyPrice: 0
   _rentAmount:
   - 0
   - 0
   - 0
   - 0
   - 0
-  PropertyColor: 0
+  _isMortgaged: 0
+  _owner: {fileID: 0}
+  cardImage: {fileID: 0}
+  isBought: 0
+  propertyColor: 0
 --- !u!1 &1056194526
 GameObject:
   m_ObjectHideFlags: 0
@@ -6111,6 +6146,16 @@ MonoBehaviour:
   targetZone: 0
   _isBankrupt: 0
   Properties: []
+  darkBluePropCount: 0
+  lightBluePropCount: 0
+  yellowPropCount: 0
+  redPropCount: 0
+  brownPropCount: 0
+  pinkPropCount: 0
+  orangePropCount: 0
+  greenPropCount: 0
+  blackPropCount: 0
+  whitePropCount: 0
 --- !u!1 &1732833632
 GameObject:
   m_ObjectHideFlags: 0
@@ -6643,9 +6688,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7df53163461b29c44afdb43300792009, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _propertyPrice: 0
   _rentAmount:
   - 4
   - 10
+  _isMortgaged: 0
+  _owner: {fileID: 0}
+  cardImage: {fileID: 0}
+  isBought: 0
 --- !u!114 &1799993687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6658,11 +6708,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6542a417f679ea34484e1b09b5681fd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _propertyPrice: 0
   _rentAmount:
   - 0
   - 0
   - 0
   - 0
+  _isMortgaged: 0
+  _owner: {fileID: 0}
+  cardImage: {fileID: 0}
+  isBought: 0
 --- !u!1 &1830885852
 GameObject:
   m_ObjectHideFlags: 0
@@ -6913,13 +6968,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ae32c65e6e773b4ebfd3a6be6baff5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _propertyPrice: 0
   _rentAmount:
   - 0
   - 0
   - 0
   - 0
   - 0
-  PropertyColor: 0
+  _isMortgaged: 0
+  _owner: {fileID: 0}
+  cardImage: {fileID: 0}
+  isBought: 0
+  propertyColor: 0
 --- !u!1 &1889672430
 GameObject:
   m_ObjectHideFlags: 0
@@ -7181,6 +7241,16 @@ MonoBehaviour:
   targetZone: 0
   _isBankrupt: 0
   Properties: []
+  darkBluePropCount: 0
+  lightBluePropCount: 0
+  yellowPropCount: 0
+  redPropCount: 0
+  brownPropCount: 0
+  pinkPropCount: 0
+  orangePropCount: 0
+  greenPropCount: 0
+  blackPropCount: 0
+  whitePropCount: 0
 --- !u!1 &1919304449
 GameObject:
   m_ObjectHideFlags: 0
@@ -7963,13 +8033,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ae32c65e6e773b4ebfd3a6be6baff5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _propertyPrice: 0
   _rentAmount:
   - 0
   - 0
   - 0
   - 0
   - 0
-  PropertyColor: 0
+  _isMortgaged: 0
+  _owner: {fileID: 0}
+  cardImage: {fileID: 0}
+  isBought: 0
+  propertyColor: 0
 --- !u!1 &2099116750
 GameObject:
   m_ObjectHideFlags: 0
@@ -8438,3 +8513,13 @@ MonoBehaviour:
   targetZone: 0
   _isBankrupt: 0
   Properties: []
+  darkBluePropCount: 0
+  lightBluePropCount: 0
+  yellowPropCount: 0
+  redPropCount: 0
+  brownPropCount: 0
+  pinkPropCount: 0
+  orangePropCount: 0
+  greenPropCount: 0
+  blackPropCount: 0
+  whitePropCount: 0

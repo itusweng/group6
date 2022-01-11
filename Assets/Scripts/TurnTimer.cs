@@ -11,11 +11,13 @@ public class TurnTimer : MonoBehaviour
   public float initialTimeLeft = 60f;
   float timeLeft;
   public bool timeIsStopped;
+  private TurnHandler gameManager;
 
   // Start is called before the first frame update
   void Start()
   {
     timeLeft = initialTimeLeft;
+    gameManager = GetComponent<TurnHandler>();
   }
 
   // Update is called once per frame
@@ -23,8 +25,8 @@ public class TurnTimer : MonoBehaviour
   {
     if (timeLeft <= 0)
     {
-      TurnHandler turnHandler = GetComponent<TurnHandler>();
-      turnHandler.TimeEnded();
+      ResetTimer();
+      gameManager.PassRound();
     }
     if(!timeIsStopped)
     {
